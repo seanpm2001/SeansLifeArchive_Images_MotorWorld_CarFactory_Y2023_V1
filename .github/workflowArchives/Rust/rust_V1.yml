@@ -1,0 +1,22 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "SeansLifeArchive_Images_MotorWorld_CarFactory_Y2023_V1_Main-dev" ]
+  pull_request:
+    branches: [ "SeansLifeArchive_Images_MotorWorld_CarFactory_Y2023_V1_Main-dev" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose
